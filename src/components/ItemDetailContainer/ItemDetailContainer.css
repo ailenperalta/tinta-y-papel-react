@@ -1,0 +1,11 @@
+.detail-section {
+  min-height: 80vh;
+}
+
+.loading,
+.error {
+  text-align: center;
+  margin-top: 4rem;
+  font-size: 1.2rem;
+  color: #4B4B4B;
+}

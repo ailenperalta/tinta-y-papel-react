@@ -1,0 +1,46 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 3rem;
+  background-color: #FAF9F6;
+  border-bottom: 1px solid #E5E5E5;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  color: #111111;
+  cursor: pointer;
+}
+
+.logo-container img {
+  height: 3.2rem;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.logo-container h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+
+  header {
+    padding: 1rem 1.5rem;
+  }
+
+  .logo-container h1 {
+    font-size: 1.5rem;
+  }
+} 
