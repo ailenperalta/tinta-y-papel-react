@@ -1,4 +1,4 @@
-const IMGBB_API_KEY = "217aafe8beeb6649f9bd34318d2317dc";
+const API_KEY = import.meta.env.VITE_IMGBB_API_KEY;
 const ENDPOINT = "https://api.imgbb.com/1/upload";
 
 export const uploadImage = async (file) => {
@@ -6,7 +6,7 @@ export const uploadImage = async (file) => {
     formData.append("image", file);
 
     try {
-        const response = await fetch(`${ENDPOINT}?key=${IMGBB_API_KEY}`, {
+        const response = await fetch(`${ENDPOINT}?key=${API_KEY}`, {
             method: "POST",
             body: formData,
         });
