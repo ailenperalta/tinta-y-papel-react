@@ -5,11 +5,22 @@
 }
 
 body {
-  background-color: #F5F1E8;
-  color: #111111;
+  background-color: var(--bg);
+  color: var(--text);
   font-family: system-ui, sans-serif;
   line-height: 1.6;
   letter-spacing: 0.2px;
+}
+
+:root {
+  --bg: #F5F1E8;
+  --surface: #FAF8F2;
+  --text: #111111;
+  --text-secondary: #555555;
+  --border: #DDD5C3;
+  --accent: #C89B3C;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --radius: 14px;
 }
 
 #root {

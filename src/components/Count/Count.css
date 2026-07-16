@@ -1,0 +1,35 @@
+.count-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.count-container p {
+  margin: 0;
+  min-width: 1.5rem;
+
+  text-align: center;
+
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #5B4636;
+}
+
+.count-container .btn {
+  width: 2.5rem;
+  height: 2.5rem;
+
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .count-container {
+    width: 220px;
+  }
+}

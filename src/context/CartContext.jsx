@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const CartContext = createContext();
 
@@ -15,20 +15,51 @@ export const useCart = () => {
 
 export const CartProvider = ({ children }) => {
     const navigate = useNavigate();
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(() => {
+        const savedCart = localStorage.getItem("cart");
+
+        return savedCart ? JSON.parse(savedCart) : [];
+    });
+
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart]);
 
     const isInCart = (item) => {
         const inCart = cart.some(element => element.id === item.id);
         return inCart;
     };
 
-    const addToCart = (item) => {
+    const addToCart = (item, quantity) => {
+
         if (isInCart(item)) {
-            alert("El producto ya existe en el carrito");
+
+            const updatedCart = cart.map((element) => {
+
+                if (element.id === item.id) {
+                    return {
+                        ...element,
+                        quantity: element.quantity + quantity,
+                    };
+                }
+
+                return element;
+            });
+
+            setCart(updatedCart);
+            alert("Cantidad actualizada");
+
             return;
         }
 
-        setCart([...cart, item]);
+        setCart([
+            ...cart,
+            {
+                ...item,
+                quantity,
+            },
+        ]);
+
         alert("Producto agregado al carrito");
     };
 
@@ -43,11 +74,17 @@ export const CartProvider = ({ children }) => {
     };
 
     const getTotalItems = () => {
-        return cart.length;
+        return cart.reduce(
+            (acc, item) => acc + item.quantity,
+            0
+        );
     };
 
     const getTotalPrice = () => {
-        return cart.reduce((acc, element) => acc + element.price, 0);
+        return cart.reduce(
+            (acc, item) => acc + item.price * item.quantity,
+            0
+        );
     };
 
     const checkout = () => {
@@ -56,11 +93,12 @@ export const CartProvider = ({ children }) => {
         navigate("/");
     };
 
-    const values = { 
-        addToCart, 
-        removeFromCart, 
-        clearCart, 
-        getTotalItems, 
+    const values = {
+        cart,
+        addToCart,
+        removeFromCart,
+        clearCart,
+        getTotalItems,
         getTotalPrice,
         checkout
     };

@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { useCart } from "../../context/CartContext";
-import { Item } from "../Item/Item";
+import { Count } from "../Count/Count";
 import "./ItemDetail.css"
 
 export const ItemDetail = ({ item }) => {
+    const [quantity, setQuantity] = useState(1);
     const { addToCart } = useCart();
 
     const {
@@ -15,15 +17,30 @@ export const ItemDetail = ({ item }) => {
 
     return (
         <section className="detail-container">
-            <img src={image} alt={`Foto de ${name}`} className="detail-image"/>
+            <img src={image} alt={`Foto de ${name}`} className="detail-image" />
             <div className="detail-info">
                 <h2>{name}</h2>
                 <p className="detail-author">{author}</p>
                 <p className="detail-description">{description}</p>
                 <p className="detail-price">${price}</p>
-                <button className="btn primary" onClick={() => addToCart(item)}>
-                    Agregar al carrito
-                </button>
+                
+                <div className="purchase-section">
+                    <p className="quantity-title">
+                        Cantidad
+                    </p>
+                    
+                    <Count
+                        quantity={quantity}
+                        setQuantity={setQuantity}
+                    />
+
+                    <button
+                        className="btn primary add-cart-btn"
+                        onClick={() => addToCart(item, quantity)}
+                    >
+                        Agregar al carrito
+                    </button>
+                </div>
             </div>
         </section>
     );

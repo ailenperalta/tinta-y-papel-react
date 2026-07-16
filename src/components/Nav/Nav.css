@@ -27,6 +27,43 @@
   color: #C89B3C;
 }
 
+.cart-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cart-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.9rem;
+}
+
+.incart {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+
+  min-width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  background: #B68C5A;
+  color: white;
+
+  font-size: .75rem;
+  font-weight: 700;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 768px) {
   .nav-list {
     gap: 1rem;

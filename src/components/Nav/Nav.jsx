@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import "./Nav.css";
 import { useCart } from "../../context/CartContext";
+import { HiOutlineShoppingCart } from "react-icons/hi2";
+import "./Nav.css";
 
 export const Nav = () => {
     const { getTotalItems } = useCart();
@@ -13,9 +14,13 @@ export const Nav = () => {
                     <Link to={"/"}>Home</Link>
                 </li>
                 <li>
-                    <Link to={"/carrito"}>
-                        Carrito
-                        {totalItems > 0 && <span className="incart">{totalItems}</span>}
+                    <Link to={"/carrito"} className="cart-link">
+                        <span className="cart-icon">
+                            <HiOutlineShoppingCart />
+                            {totalItems > 0 && (
+                                <span className="incart">{totalItems}</span>
+                            )}
+                        </span>
                     </Link>
                 </li>
             </ul>

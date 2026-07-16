@@ -1,22 +1,44 @@
-import { Route, Routes } from 'react-router-dom';
-import { Footer } from './components/Footer/Footer';
-import { Header } from './components/Header/Header';
-import './App.css';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
+import { CartView } from './components/Cart/CartView';
+import { ProductSuccess } from './components/adminComponent/ProductSuccess';
+import { ProductFormContainer } from './components/adminComponent/ProductFormContainer';
+import { PublicLayout } from "./layouts/PublicLayout";
+import { AdminLayout } from "./layouts/AdminLayout";
+import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
+import { Dashboard } from "./components/adminComponent/Dashboard/Dashboard";
+import { Login } from "./components/Login/Login";
+import './App.css';
 
 function App() {
   return (
     <>
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<ItemListContainer />} />  
-          <Route path="/product/:id" element={<ItemDetailContainer />} />  
-          <Route path="/carrito" element={<h1>Carrito</h1>} />        
-        </Routes>
-      </main>
-      <Footer />
+      <Routes>
+        
+        <Route element={<PublicLayout />}>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/product/:id" element={<ItemDetailContainer />} />
+          <Route path="/carrito" element={<CartView />} />
+        </Route>
+
+        <Route path="/admin/login" element={<Login />} />
+
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<Navigate to={"dashboard"} />} />
+          <Route path="dashboard" element={<Dashboard />} />
+
+          <Route path="products/new" element={<ProductFormContainer />} />
+          <Route path="products/success/:id" element={<ProductSuccess />} />
+        </Route>
+      </Routes>
     </>
   );
 }

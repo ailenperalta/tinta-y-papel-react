@@ -17,8 +17,11 @@
 
 .detail-info {
   max-width: 500px;
+
   display: flex;
   flex-direction: column;
+
+  height: 24rem;
 }
 
 .detail-info h2 {
@@ -72,6 +75,29 @@
   transform: translateY(-2px);
 }
 
+.purchase-section {
+  margin-top: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 1rem;
+}
+
+.quantity-title {
+  margin: 0;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #6b6b6b;
+}
+
+.add-cart-btn {
+  width: fit-content;
+  min-width: 180px;
+}
+
 @media (max-width: 768px) {
   .detail-container {
     flex-direction: column;
@@ -100,5 +126,13 @@
   .detail-price {
     font-size: 1.7rem;
   }
-}
 
+  .purchase-section {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .add-cart-btn {
+    width: 220px;
+  }
+}
