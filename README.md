@@ -1,16 +1,125 @@
-# React + Vite
+# 📚 Tinta & Papel
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🌐 **Demo online:** https://tinta-y-papel-react.vercel.app/
 
-Currently, two official plugins are available:
+Aplicación web desarrollada con **React + Vite** para la gestión de una librería online.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+El proyecto permite navegar un catálogo de libros, visualizar su información, administrar un carrito de compras y gestionar productos desde un panel de administración protegido mediante autenticación con Firebase.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Funcionalidades
 
-## Expanding the ESLint configuration
+### 🛍️ Tienda
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Visualización del catálogo de libros.
+- Vista de detalle de cada producto.
+- Agregar productos al carrito.
+- Modificar cantidades desde el carrito.
+- Eliminar productos individuales.
+- Vaciar carrito completo.
+- Persistencia del carrito mediante Local Storage.
+- Resumen de compra con cálculo automático del total.
+
+### 🔐 Administración
+
+- Inicio de sesión mediante Firebase Authentication.
+- Protección de rutas privadas.
+- Dashboard de administración.
+- Alta de nuevos productos.
+- Subida de imágenes a ImgBB.
+- Almacenamiento de productos en Firebase Firestore.
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+- React
+- Vite
+- React Router DOM
+- Context API
+- Firebase Authentication
+- Firebase Firestore
+- ImgBB API
+- React Icons
+- CSS
+
+---
+
+## 📁 Estructura del proyecto
+
+```
+src/
+│
+├── components/
+│   ├── adminComponent/
+│   │   └── Dashboard/
+│   ├── Cart/
+│   ├── Count/
+│   ├── Footer/
+│   ├── Header/
+│   ├── Item/
+│   ├── ItemDetail/
+│   ├── ItemDetailContainer/
+│   ├── ItemList/
+│   ├── ItemListContainer/
+│   ├── Login/
+│   ├── Nav/
+│   └── ProtectedRoute/
+│
+├── context/
+│   ├── AuthContext.jsx
+│   └── CartContext.jsx
+│
+├── firebase/
+│   └── config.js
+│
+├── layouts/
+│   ├── AdminLayout.jsx
+│   └── PublicLayout.jsx
+│
+├── services/
+│   ├── productsService.js
+│   └── uploadImage.js
+│
+├── utils/
+│
+└── App.jsx
+```
+
+---
+
+## 🚀 Instalación
+
+Clonar el repositorio
+
+```bash
+git clone <url-del-repositorio>
+```
+
+Ingresar a la carpeta
+
+```bash
+cd nombre-del-proyecto
+```
+
+Instalar dependencias
+
+```bash
+npm install
+```
+
+Ejecutar el proyecto
+
+```bash
+npm run dev
+```
+
+---
+
+## 👩‍💻 Desarrollado por:
+
+**Ailén Peralta**
+
+Curso React JS - Talento Tech
+

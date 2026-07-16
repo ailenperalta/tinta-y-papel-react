@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import { CartList } from "./CartList";
 import { CartSummary } from "./CartSummary";
+import { HiOutlineArrowLeft } from "react-icons/hi2";
 import "./Cart.css";
 
 export const CartView = () => {
@@ -14,7 +15,18 @@ export const CartView = () => {
             {cart.length ? (
                 <div className="cart-content">
                     <CartList />
-                    <CartSummary />
+
+                    <div className="cart-sidebar">
+                        <CartSummary />
+
+                        <Link
+                            to="/"
+                            className="continue-shopping"
+                        >
+                            <HiOutlineArrowLeft />
+                            Seguir comprando
+                        </Link>
+                    </div>
                 </div>
             ) : (
                 <div className="empty-cart-container">

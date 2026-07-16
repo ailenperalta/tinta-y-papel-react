@@ -32,7 +32,7 @@ export const CartSummary = () => {
 
             <div className="summary-actions">
                 <button
-                    className="btn-primary"
+                    className="summary-btn-primary"
                     onClick={checkout}
                 >
                     <HiOutlineCreditCard />
@@ -40,17 +40,12 @@ export const CartSummary = () => {
                 </button>
 
                 <button
-                    className="btn-del"
+                    className="summary-btn-del"
                     onClick={handleClearCart}
                 >
                     <HiOutlineTrash />
                     Vaciar carrito
                 </button>
-
-                <Link to="/" className="btn-secondary">
-                    <HiOutlineArrowLeft />
-                    Seguir comprando
-                </Link>
             </div>
         </aside>
     );
