@@ -122,4 +122,3 @@ npm run dev
 **Ailén Peralta**
 
 Curso React JS - Talento Tech
-
