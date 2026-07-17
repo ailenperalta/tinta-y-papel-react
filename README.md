@@ -117,8 +117,22 @@ npm run dev
 
 ---
 
+## ⚙️ Acceso al panel de administración
+
+La aplicación cuenta con un panel de administración protegido mediante Firebase Authentication.
+
+Para acceder:
+
+- Ruta: `/admin/login`
+- Ingresar con:
+    
+    Email: `admin@admin.com`
+    Contraseña: `admin123`
+
+---
+
 ## 👩‍💻 Desarrollado por:
 
 **Ailén Peralta**
 
-Curso React JS - Talento Tech
+Proyecto para el curso de React JS - Talento Tech
